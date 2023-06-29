@@ -52,24 +52,23 @@ function showSlides(){
   setTimeout(showSlides, 2000);
   //change image every 2 seconds
 }*/
-const faqHeaders = document.querySelectorAll(".faqs-container .faq-header");
+const accordionItems = document.querySelectorAll('.accordion-item');
 
-faqHeaders.forEach((header, i) => {
-  header.addEventListener("click", () => {
-    header.nextElementSibling.classList.toggle("active");
+accordionItems.forEach(item => {
+  const title = item.querySelector('.accordion-title');
+  const content = item.querySelector('.accordion-content');
 
-    const open = header.querySelector(".open");
-    const close = header.querySelector(".close");
+  title.addEventListener('click', () => {
+    item.classList.toggle('active');
 
-    if (header.nextElementSibling.classList.contains("active")) {
-      open.classList.remove("active");
-      close.classList.add("active");
+    if (item.classList.contains('active')) {
+      content.style.display = 'block';
     } else {
-      open.classList.add("active");
-      close.classList.remove("active");
+      content.style.display = 'none';
     }
   });
 });
+
 //js end for FAQs section
 
 const carousel = document.querySelector(".carousel"),
