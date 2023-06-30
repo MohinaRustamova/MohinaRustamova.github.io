@@ -7,67 +7,25 @@ hamburger.addEventListener("click", () => {
   navMenu.classList.toggle("active");
 })
 
-// image slider
-var slideIndex = 1;
-showSlides(slideIndex);
+const faqHeaders = document.querySelectorAll(".faqs-container .faq-header");
 
-function plusSlides(n){
-  showSlides(slideIndex += n);
-}
-function currentSlide(n){
-  showSlides(slideIndex = n);
-}
-function showSlides(n){
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length){ slideIndex = 1 }
-  if (n < 1) { slideIndex = slides.length }
-  for (i=0; i<slides.length; i++){
-    slides[i].style.display="none";
-  }
-  for (i=0; i<dots.length; i++){
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-}
+faqHeaders.forEach((header, i) => {
+  header.addEventListener("click", () => {
+    header.nextElementSibling.classList.toggle("active");
 
-/* Auto Slide
+    const open = header.querySelector(".open");
+    const close = header.querySelector(".close");
 
-var slideIndex = 0;
-showSlide();
-
-function showSlides(){
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  for (i=0; i<slides.length; i++){
-    slides[i].style.display="none";
-  }
-  slideIndex ++;
-  if(slideIndex > slides.length){
-    slideIndex = 1;
-  }
-  slides[slideIndex - 1].style.disply="block";
-  setTimeout(showSlides, 2000);
-  //change image every 2 seconds
-}*/
-const accordionItems = document.querySelectorAll('.accordion-item');
-
-accordionItems.forEach(item => {
-  const title = item.querySelector('.accordion-title');
-  const content = item.querySelector('.accordion-content');
-
-  title.addEventListener('click', () => {
-    item.classList.toggle('active');
-
-    if (item.classList.contains('active')) {
-      content.style.display = 'block';
+    if (header.nextElementSibling.classList.contains("active")) {
+      open.classList.remove("active");
+      close.classList.add("active");
     } else {
-      content.style.display = 'none';
+      open.classList.add("active");
+      close.classList.remove("active");
     }
   });
 });
+
 
 //js end for FAQs section
 
@@ -144,7 +102,3 @@ carousel.addEventListener("touchmove", dragging);
 
 document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("touchend", dragStop);
-<h1>Application Form</h1>
-  <form action="process.php" method="POST">
-    <!-- Form fields here -->
-  </form>
