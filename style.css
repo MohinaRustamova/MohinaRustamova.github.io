@@ -122,41 +122,6 @@ button {
 /* apply end */
 /* faqs section */
 
-.accordion {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.accordion-item {
-  margin-bottom: 10px;
-}
-
-.accordion-title {
-  background-color: #f4f4f4;
-  padding: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.accordion-content {
-  background-color: #ffffff;
-  padding: 10px;
-  display: none;
-}
-
-.icon {
-  font-size: 16px;
-}
-
-.active .icon {
-  transform: rotate(45deg);
-}
-
-.active + .accordion-content {
-  display: block;
-}
 
 /.photo-row {
   display: flex;
